@@ -112,10 +112,10 @@ void savePictureWithTimestamp(u8 *buffer, size_t size)
 
 	strftime(timeStr, sizeof(timeStr), "%Y-%m-%d_%H-%M-%S", timeinfo);
 
-	mkdir("sdmc:/3DImages", 0777);
+	mkdir("sdmc:/DCIM/%Y_%m-%d", 0777);
 
 	char filename[256];
-	snprintf(filename, sizeof(filename), "%s/%s.rgb565", "sdmc:/3DImages", timeStr);
+	snprintf(filename, sizeof(filename), "%s/%s.rgb565", "sdmc:/DCIM/%Y_%m-%d", timeStr);
 
 	FILE *file = fopen(filename, "wb");
 	if (!file)
